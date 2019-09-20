@@ -33,13 +33,7 @@ app.use(entitlementsCleaner)
 
 const fromJson = result => result.json()
 
-app.get('/search', (req, res) => {
-  console.log({subscriptions: req.subscriptions})
-  Promise.all([
-    fetch(`http://localhost:4001/header?entitlements=${req.subscriptions}`).then(fromJson),
-    fetch(`http://localhost:4000/search-page?entitlements=${req.subscriptions}`).then(fromJson)
-  ])
-    .then(([
+const render = (res) => ([
       {html: headerHtml, bundleUrl: headerBundleUrl },
       {html: pageHtml, bundleUrl: pageBundleUrl }
     ]) => {
@@ -52,24 +46,26 @@ app.get('/search', (req, res) => {
         ].join('\n'))
 
       res.send(fullHtml)
-    })
+    }
+
+app.get('/search', (req, res) => {
+  console.log({subscriptions: req.subscriptions})
+  Promise.all([
+    fetch(`http://localhost:4001/header?entitlements=${req.subscriptions}`).then(fromJson),
+    fetch(`http://localhost:4000/search-page?entitlements=${req.subscriptions}`).then(fromJson)
+  ])
+    .then(render(res))
     .catch(err => {
       console.log(err)
     })
 })
 
 app.get('/intelligence/view/:intelMmgid', (req, res) => {
-  request({
-    uri: `http://localhost:5000/intelligence/view/${req.params.intelMmgid}?entitlements=${req.subscriptions}`,
-    json: true
-  })
-    .then(({ html, bundleUrl }) => {
-      const fullHtml = template
-        .replace('<!--SEARCH-->', html)
-        .replace('<!--BUNDLESCRIPT-->', bundleScript(bundleUrl))
-
-      res.send(fullHtml)
-    })
+  console.log({subscriptions: req.subscriptions})
+  Promise.all([
+    fetch(`http://localhost:4001/header?entitlements=${req.subscriptions}`).then(fromJson),
+    fetch(`http://localhost:5000/intelligence/view/${req.params.intelMmgid}?entitlements=${req.subscriptions}`).then(fromJson)
+  ]).then(render(res))
     .catch(err => {
       console.log(err)
     })

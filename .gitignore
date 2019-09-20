@@ -1,4 +1,5 @@
 node_modules
 search/dist
 intel-view/dist
-
+header/dist
+.npmrc

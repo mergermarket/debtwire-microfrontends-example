@@ -3,7 +3,7 @@ var graphqlHTTP = require('express-graphql');
 var { buildSchema } = require('graphql');
 
 const hostname = 'https://local.debtwire.com'
-const port = 4000
+const port = 3001
 const graphqlRoute = '/api/graphql'
 
 const authenticate = require('./middleware/authenticate')
@@ -53,6 +53,6 @@ app.use('/api/graphql', graphqlHTTP({
   graphiql: true,
 }));
 
-app.listen(4000);
+app.listen(3001);
 
 //express.get('/user')

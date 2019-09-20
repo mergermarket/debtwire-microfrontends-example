@@ -425,6 +425,14 @@ is-typedarray@~1.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
 
+isomorphic-unfetch@^3.0.0:
+  version "3.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/isomorphic-unfetch/-/isomorphic-unfetch-3.0.0.tgz#de6d80abde487b17de2c400a7ef9e5ecc2efb362"
+  integrity sha1-3m2Aq95IexfeLEAKfvnl7MLvs2I=
+  dependencies:
+    node-fetch "^2.2.0"
+    unfetch "^4.0.0"
+
 isstream@~0.1.2:
   version "0.1.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
@@ -540,6 +548,11 @@ node-cache@4.2.0:
   dependencies:
     clone "2.x"
     lodash "4.x"
+
+node-fetch@^2.2.0:
+  version "2.6.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
+  integrity sha1-5jNFY4bUqlWGP2dqerDaqP3ssP0=
 
 oauth-sign@~0.9.0:
   version "0.9.0"
@@ -778,6 +791,11 @@ type-is@~1.6.17, type-is@~1.6.18:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.24"
+
+unfetch@^4.0.0:
+  version "4.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/unfetch/-/unfetch-4.1.0.tgz#6ec2dd0de887e58a4dee83a050ded80ffc4137db"
+  integrity sha1-bsLdDeiH5YpN7oOgUN7YD/xBN9s=
 
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"

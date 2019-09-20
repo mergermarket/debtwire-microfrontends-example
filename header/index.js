@@ -1,8 +1,10 @@
 const express = require('express')
-//const Header = require('debtwire-react-header')
+const Header = require('debtwire-react-header').default
 const React = require('react')
 const ReactDomServer = require('react-dom/server')
 const fetch = require('isomorphic-unfetch')
+
+//const App = require('./src/App.jsx')
 
 const app = express()
 
@@ -16,31 +18,29 @@ const query = `query {
 
 
 app.get('/header', (req, res) => {
-  fetch('http://local.debtwire.com:3001/api/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: JSON.stringify({
-      query
-    })
+  const header = React.createElement(Header, {
+    actionItems: [],
+    secondaryLinks: [],
+    subscriptionTags: [],
+    dwDomain: 'local.debtwire.com',
+    env: 'aslive',
+    entitlements: req.query.entitlements.split(','),
+    activeRoute: req.query.activeRoute,
+    userMenuProps: {}
   })
-  .then(r => r.json())
-  .then(data => {
 
-    res.json({
-      html: `<div>${data.subscriptions}</div>`,
-      bundleUrl: 'http://localhost:4000/bundle.js'
-    })
+  html = ReactDomServer.renderToString(header)
+
+  return res.json({
+    html: `<div id="header-container">${html}</div>`,
+    bundleUrl: 'http://localhost:4001/bundle.js'
   })
 })
 
 app.get('/bundle.js', (req, res) => {
-  res.sendFile(`${__dirname}/bundle.js`)
+  res.sendFile(`${__dirname}/dist/bundle.js`)
 })
 
 app.listen(4001, () => {
   console.log('server started on port 4001')
 })
-

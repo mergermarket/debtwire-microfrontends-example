@@ -58,6 +58,23 @@ app.get('/search', (req, res) => {
     })
 })
 
+app.get('/intelligence/view/:intelMmgid', (req, res) => {
+  request({
+    uri: `http://localhost:5000/intelligence/view/${req.params.intelMmgid}?entitlements=${req.subscriptions}`,
+    json: true
+  })
+    .then(({ html, bundleUrl }) => {
+      const fullHtml = template
+        .replace('<!--SEARCH-->', html)
+        .replace('<!--BUNDLESCRIPT-->', bundleScript(bundleUrl))
+
+      res.send(fullHtml)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
+
 app.listen(3000, () => {
   console.log('server started on port 3000')
 })

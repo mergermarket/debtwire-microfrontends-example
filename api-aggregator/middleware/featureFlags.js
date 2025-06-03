@@ -1,4 +1,4 @@
-import expressFeatureFlagsMiddleware from 'express-feature-flags-middleware'
+import expressFeatureFlagsMiddleware from '@mergermarket/express-feature-flags-middleware-jfc'
 import allowedFeatureFlags from '../../infra/allowedFeatureFlags'
 
 export default function ({ config, log, metrics }) {

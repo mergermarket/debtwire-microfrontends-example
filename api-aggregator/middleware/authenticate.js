@@ -1,4 +1,4 @@
-const AuthClient = require('mmg-authentication-service-client')
+const AuthClient = require('@mergermarket/mmg-authentication-service-client-jfc')
 
 const DEBTWIRE_PRODUCT_ID = 8
 

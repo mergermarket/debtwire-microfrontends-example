@@ -9,8 +9,8 @@
   "dependencies": {
     "@babel/preset-env": "7.6.0",
     "@babel/register": "7.6.0",
-    "acuris-analytics": "^0.3.1",
-    "debtwire-react-header": "^3.0.6",
+    "@mergermarket/acuris-analytics-jfc": "^0.3.1",
+    "@mergermarket/debtwire-react-header-jfc": "^3.0.6",
     "express": "4.17.1",
     "isomorphic-unfetch": "^3.0.0",
     "react": "16.9.0",

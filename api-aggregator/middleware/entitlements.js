@@ -1,4 +1,4 @@
-const EntitlementsClient = require('mmg-entitlements-service-client')
+const EntitlementsClient = require('@mergermarket/mmg-entitlements-service-client-jfc')
 
 //export default function ({ config, log, metrics }) {
 

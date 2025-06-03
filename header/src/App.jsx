@@ -1,4 +1,4 @@
-const Header = require('debtwire-react-header').default
+const Header = require('@mergermarket/debtwire-react-header-jfc').default
 
 const App = (props) => (
   <Header {...props} />

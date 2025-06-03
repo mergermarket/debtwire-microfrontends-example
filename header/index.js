@@ -1,5 +1,5 @@
 const express = require('express')
-const Header = require('debtwire-react-header').default
+const Header = require('@mergermarket/debtwire-react-header-jfc').default
 const React = require('react')
 const ReactDomServer = require('react-dom/server')
 const fetch = require('isomorphic-unfetch')

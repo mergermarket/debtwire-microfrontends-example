@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import fetch from 'isomorphic-unfetch'
-import Header from 'debtwire-react-header'
+import Header from '@mergermarket/debtwire-react-header-jfc'
 
 //import App from './App'
 
